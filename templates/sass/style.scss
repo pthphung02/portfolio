@@ -321,71 +321,25 @@ h1, h2, h3, h4, h5, h6, figure {
 		}
 	}
 }
-
-
-#fh5co-features {
-	background: $brand-primary;
-	h2 {
-		color: $brand-white;
-	}
-	.services-padding{
-		// padding: 7em 0;
-		padding: 50px 0;
-	}
-	.feature-left {
-		margin-bottom: 40px;
-		float: left;
-		@media screen and (max-width: $screen-md) {
-			margin-bottom: 30px;
-		}
-		.icon {
-			display: table;
-			text-align: center;
-			width: 100px;
-			height: 100px;
-			margin: 0 auto;
-			background: $brand-white;
-			margin-bottom: 20px;
-			@include border-radius(50%);
-			i{
-				font-size: 50px;
-				display: table-cell;
-				vertical-align: middle;
-				height: 100px;
-				color: $brand-primary !important;
-			}
-		}
-		.feature-copy {
-			width: 100%;
-		}
-		h3 {
-			font-size: 24px;
-			font-weight: 400;
-			color: $brand-white;
-		}
-		p {
-			font-size: 16px;
-			color: rgba(255,255,255,.7);
-			&:last-child {
-				margin-bottom: 0;
-			}
-			a{
-				color: $brand-black !important;
-			}
-		}
-	}
+#overlay {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background: rgba(0,0,0,.7);
+	z-index: 1;
+	display: none;
 }
 
 
 #about,
 #resume,
 #skills,
-#fh5co-started,
 #work,
-#fh5co-blog,
-#fh5co-pricing,
-#fh5co-contact{
-	// padding: 7em 0;
+#contact {
 	padding: 70px 0;
 	clear: both;
 	@media screen and (max-width: $screen-sm) {
@@ -875,7 +829,7 @@ h1, h2, h3, h4, h5, h6, figure {
 	}
 }
 
-#fh5co-started {
+#started {
 	background-size: cover;
 	background-position: center center;
 	background-repeat: no-repeat;
@@ -913,96 +867,6 @@ h1, h2, h3, h4, h5, h6, figure {
 
 
 //PRICING
-
-// BLOG
-.fh5co-blog{
-	width: 100%;
-	float: left;
-	margin-bottom: 40px;
-	@media screen and (max-width: $screen-sm) {
-		width: 100%;
-	}
-	.blog-bg{
-		display: block;
-		width: 100%;
-		background-size: cover;
-		background-position: center center;
-		background-repeat: no-repeat;
-		position: relative;
-		height: 300px;
-		@media screen and (max-width: $screen-sm){
-			height: 400px;
-		}
-		@media screen and (max-width: $screen-xs){
-			height: 270px;
-		}
-	}
-	.blog-text {
-		margin-bottom: 30px;
-		position: relative;
-		width: 100%;
-		padding: 30px;
-		float: left;
-		background: $brand-white;
-
-		-webkit-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.06);
-		-moz-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.06);
-		box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.06);
-
-		@include transition(.3s);
-
-		@media screen and (max-width: $screen-sm){
-			padding: 10px;
-		}
-
-		span{
-			display: inline-block;
-			margin-bottom: 20px;
-			font-size: 18px !important;
-			color: rgba($brand-black,.3);
-		}
-		.stuff{
-			margin: 0;
-			padding: 0;
-			border-top: 1px solid rgba($brand-black,.05);
-			padding-top: 20px;
-			li{
-				list-style: none;
-				display: inline-block;
-				margin-left: 10px;
-				@media screen and (max-width: $screen-sm){
-					font-size: 14px;
-				}
-				&:first-child{
-					margin-left: 0;
-				}
-				&:last-child{
-					float: right;
-					a{
-						color: $brand-black;
-					}
-					i{
-						padding-right: 0;
-						padding-left: 10px;
-					}
-				}
-				i{
-					font-size: 14px;
-					padding-right: 5px;
-				}
-			}
-		}
-
-		h3{
-			font-size: 24px;
-			margin-bottom: 20px;
-			line-height: 1.5;
-			a{
-				color: rgba($brand-black,1);
-			}
-		}
-	}
-}
 
 
 #contact{
@@ -1544,19 +1408,16 @@ input[type="text"] {
 	left: 0;
 	width: 100%;
 	box-sizing: border-box;
-	background-color: #FFF;
 	padding: 0 15px;
 	z-index: 1;
+	background-color: #FFF;
 	box-sizing: border-box;
-	@media screen and (max-width: $screen-sm) {
-		background-color: none;
-	}
 	ul {
 		list-style-type: none;
 		display: flex;
 		justify-content: center;
 		margin: 0;
-		
+		// z-index: 2;
 
 		@media screen and (max-width: $screen-sm) {
 			position: absolute;
@@ -1567,10 +1428,14 @@ input[type="text"] {
 			background-color: #FFF;
 			padding-top: 43px;
 			top: 0;
-    	text-align: center;
+    		text-align: center;
 			transition: left .3s;
 			&.active {
 				left: 0;
+				#navbar & {
+					background-color: #FFF;
+					height: 100%;
+				}
 			}
 			li {
 				width: 100%;
@@ -1688,15 +1553,14 @@ input[type="text"] {
 	@media screen and (max-width: $screen-md) {
 		li {
 			width: 100%;
-		}
-	}
-	@media screen and (max-width: $screen-sm) {
-		li {
 			padding: 0;
+			margin-bottom: 15px;
+			&:last-child {
+				margin-bottom: 0;
+			}
 		}
 	}
 }
-
 .alert {
 	display: none;
 	background-color: #f2f2f2;

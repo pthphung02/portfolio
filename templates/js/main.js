@@ -194,16 +194,18 @@
 	var toggleNav = function(){
 		$('.menu-trigger').click(function(e) {
 			e.preventDefault();
-			// let $el = $('.menu-trigger');
 			if($('.menu-trigger').hasClass('active')) {
 				$('#navbar ul').removeClass('active');
 				$('.menu-trigger').removeClass('active');
+				$('#overlay').fadeOut();
 			} else {
 				$('#navbar ul').addClass('active');
 				$('.menu-trigger').addClass('active');
+				$('#overlay').fadeIn();
 			}
-			// $(this).toggleClass('active');
-			// $('#navbar ul').toggleClass('show');
+		});
+		$('#overlay').click(function(e) {
+			$('.menu-trigger').trigger('click');
 		});
 	}
 	
