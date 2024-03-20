@@ -1,3 +1,4 @@
 templates/css/style.css.map
 .DS_Store
 node_modules
+package-lock.json
